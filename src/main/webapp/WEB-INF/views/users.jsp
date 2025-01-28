@@ -1,19 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>List of users</title>
+    <title>Users</title>
     <link rel="stylesheet" href="styles.css"> <!-- Подключение CSS -->
 </head>
 <body>
-<h1>List of users</h1>
+<h1>Users</h1>
 
 <table border="1" cellpadding="10" cellspacing="0">
     <thead>
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>LAst name</th>
+        <th>Last name</th>
         <th>Email</th>
         <th>Actions</th>
     </tr>
@@ -26,8 +28,11 @@
             <td>${user.lastName}</td>
             <td>${user.email}</td>
             <td>
-                <a href="edit/${user.id}">Edit</a> |
-                <a href="delete/${user.id}" onclick="return confirm('Are you sure?');">Delete</a>
+                <a href="users/${user.id}/edit">Edit</a> |
+                <!-- Форма для удаления -->
+                <form action="/users/${user.id}/delete" method="post" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Are you sure?');">Delete</button>
+                </form>
             </td>
         </tr>
     </c:forEach>
@@ -35,6 +40,6 @@
 </table>
 
 <br>
-<a href="new">Add new user</a>
+<a href="users/new">Add new user</a>
 </body>
 </html>

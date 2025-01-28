@@ -1,5 +1,6 @@
 package mvc_hibernate.dao;
 
+import jakarta.transaction.Transactional;
 import mvc_hibernate.model.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

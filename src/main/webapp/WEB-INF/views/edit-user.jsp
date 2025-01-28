@@ -7,7 +7,7 @@
 <body>
 <h1>Edit user</h1>
 
-<form action="edit/${user.id}" method="post">
+<form action="/users/edit/${user.id}" method="post">
   <label for="name">Name:</label><br>
   <input type="text" id="name" name="name" value="${user.name}" required><br><br>
 
